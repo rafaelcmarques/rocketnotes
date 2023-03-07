@@ -10,13 +10,12 @@ import { Container, Form, Background } from "./styles"
 
 export function SignIn() {
   const [email, setEmail] = useState("")
-  const [passsword, setPassword] = useState("")
+  const [password, setPassword] = useState("")
 
   const { signIn } = useAuth()
 
   function handleSignIn() {
-    console.log({ email, passsword })
-    signIn({ email, passsword })
+    signIn({ email, password })
   }
 
   return (
@@ -41,7 +40,7 @@ export function SignIn() {
             setPassword(e.target.value)
           }}
         />
-        <Button title="Entrar" onClick={handleSignIn} />
+        <Button title="Entrar" type="button" onClick={handleSignIn} />
         <Link to="/register">Criar conta</Link>
       </Form>
       <Background />
