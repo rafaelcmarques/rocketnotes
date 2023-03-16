@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { Container, Form } from "./styles"
 import { Header } from "../../components/Header"
+import { ButtonText } from "../../components/ButtonText"
 import { Input } from "../../components/Input"
 import { Textarea } from "../../components/Textarea"
 import { NoteItem } from "../../components/NoteItem"
@@ -65,7 +65,11 @@ export function New() {
     })
 
     alert("Nota criada com sucesso")
-    navigate("/")
+    navigate(-1)
+  }
+
+  function handleBack() {
+    navigate(-1)
   }
 
   return (
@@ -75,7 +79,7 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">Voltar</Link>
+            <ButtonText title={"Voltar"} onClick={handleBack} />
           </header>
           <Input
             placeholder="Título"
